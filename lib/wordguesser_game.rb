@@ -27,7 +27,7 @@ class WordGuesserGame
   def guess g #make a guess with a character g
     raise ArgumentError if g == nil
     raise ArgumentError if g.empty? #if g is empty string, throw argument error
-    raise ArgumentError if (g.ord < 64 or g.ord > 91) and (g.ord < 96 or g.ord > 123) #if g is not an ascii letter (A-Z, a-z), throw argument error
+    raise ArgumentError if (g.ord < 65 or g.ord > 90) and (g.ord < 97 or g.ord > 122) #if g is not an ascii letter (A-Z, a-z), throw argument error
     #if guess character is already in the guesses or wrong guesses string, do not add character to anything
     #downcase g for case insensitivity
     if @guesses.include? g.downcase or @wrong_guesses.include? g.downcase 
@@ -84,3 +84,10 @@ class WordGuesserGame
   end
 
 end
+
+# @game = WordGuesserGame.new('foobar')
+# @game.guess('a')
+# @game.guess('z')
+# @game.guess('x')
+# @game.guess('o')
+# puts @game.word_with_guesses
